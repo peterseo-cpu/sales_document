@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>브랜드광고팀 주간 업무 보고 | 7월 13–16일</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: 'Apple SD Gothic Neo', 'Noto Sans KR', 'Malgun Gothic', sans-serif;
+    background: #f4f6f9;
+    color: #1a1a2e;
+    font-size: 14px;
+    line-height: 1.6;
+  }
+  .wrapper { max-width: 960px; margin: 0 auto; padding: 32px 20px 60px; }
+
+  /* 헤더 */
+  .report-header {
+    background: linear-gradient(135deg, #1a237e 0%, #283593 60%, #3949ab 100%);
+    color: #fff;
+    border-radius: 12px;
+    padding: 32px 36px;
+    margin-bottom: 28px;
+  }
+  .report-header .team { font-size: 13px; opacity: .75; margin-bottom: 6px; letter-spacing: .08em; text-transform: uppercase; }
+  .report-header h1 { font-size: 22px; font-weight: 700; margin-bottom: 14px; }
+  .report-header .meta { display: flex; gap: 28px; font-size: 13px; opacity: .85; }
+
+  /* 요약 카드 */
+  .kpi-row { display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; margin-bottom: 28px; }
+  .kpi-card {
+    background: #fff;
+    border-radius: 10px;
+    padding: 18px 16px;
+    text-align: center;
+    box-shadow: 0 1px 6px rgba(0,0,0,.07);
+    border-top: 3px solid #3949ab;
+  }
+  .kpi-card .label { font-size: 12px; color: #666; margin-bottom: 6px; }
+  .kpi-card .value { font-size: 22px; font-weight: 700; color: #1a237e; }
+  .kpi-card .sub { font-size: 12px; color: #888; margin-top: 3px; }
+
+  /* 섹션 */
+  .section {
+    background: #fff;
+    border-radius: 10px;
+    padding: 24px 28px;
+    margin-bottom: 18px;
+    box-shadow: 0 1px 6px rgba(0,0,0,.06);
+  }
+  .section-title {
+    font-size: 15px;
+    font-weight: 700;
+    color: #1a237e;
+    margin-bottom: 16px;
+    padding-bottom: 10px;
+    border-bottom: 2px solid #e8eaf6;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .section-title .num {
+    background: #3949ab;
+    color: #fff;
+    font-size: 12px;
+    font-weight: 700;
+    width: 22px; height: 22px;
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    flex-shrink: 0;
+  }
+
+  /* 테이블 */
+  table { width: 100%; border-collapse: collapse; font-size: 13px; }
+  thead th {
+    background: #e8eaf6;
+    color: #1a237e;
+    font-weight: 600;
+    padding: 9px 12px;
+    text-align: left;
+    font-size: 12px;
+  }
+  tbody tr:nth-child(even) { background: #fafbff; }
+  tbody td { padding: 9px 12px; border-bottom: 1px solid #f0f0f5; vertical-align: middle; }
+  tbody tr:last-child td { border-bottom: none; }
+
+  /* 상태 뱃지 */
+  .badge {
+    display: inline-block;
+    padding: 2px 9px;
+    border-radius: 20px;
+    font-size: 11px;
+    font-weight: 600;
+    white-space: nowrap;
+  }
+  .badge-sign { background: #e3f2fd; color: #1565c0; }
+  .badge-booked { background: #e8f5e9; color: #2e7d32; }
+  .badge-report { background: #fff3e0; color: #e65100; }
+
+  /* 부킹 가능성 */
+  .prob-high { color: #c62828; font-weight: 600; }
+  .prob-mid { color: #e65100; font-weight: 600; }
+  .prob-low { color: #388e3c; font-weight: 600; }
+
+  /* 파이프라인 요약 */
+  .pipeline-summary {
+    display: flex;
+    gap: 12px;
+    margin-bottom: 16px;
+    flex-wrap: wrap;
+  }
+  .ps-card {
+    flex: 1;
+    min-width: 140px;
+    border-radius: 8px;
+    padding: 12px 16px;
+    text-align: center;
+  }
+  .ps-card.high { background: #ffebee; border: 1px solid #ef9a9a; }
+  .ps-card.mid  { background: #fff8e1; border: 1px solid #ffe082; }
+  .ps-card.low  { background: #e8f5e9; border: 1px solid #a5d6a7; }
+  .ps-card .ps-label { font-size: 12px; font-weight: 600; margin-bottom: 4px; }
+  .ps-card.high .ps-label { color: #c62828; }
+  .ps-card.mid  .ps-label { color: #e65100; }
+  .ps-card.low  .ps-label { color: #2e7d32; }
+  .ps-card .ps-count { font-size: 20px; font-weight: 700; color: #1a1a2e; }
+  .ps-card .ps-amt { font-size: 12px; color: #666; margin-top: 2px; }
+
+  /* 영업 활동 */
+  .meeting-list { list-style: none; }
+  .meeting-list li {
+    padding: 9px 0;
+    border-bottom: 1px solid #f0f0f5;
+    display: flex;
+    align-items: baseline;
+    gap: 10px;
+    font-size: 13px;
+  }
+  .meeting-list li:last-child { border-bottom: none; }
+  .meeting-date {
+    background: #e8eaf6;
+    color: #3949ab;
+    font-weight: 700;
+    font-size: 12px;
+    padding: 2px 8px;
+    border-radius: 4px;
+    white-space: nowrap;
+    flex-shrink: 0;
+  }
+
+  /* 이슈 */
+  .issue-list { list-style: none; }
+  .issue-list li {
+    padding: 10px 14px;
+    margin-bottom: 8px;
+    border-left: 3px solid #ff7043;
+    background: #fff8f6;
+    border-radius: 0 6px 6px 0;
+    font-size: 13px;
+  }
+  .issue-list li:last-child { margin-bottom: 0; }
+  .issue-list li strong { color: #bf360c; }
+
+  /* 캠페인 운영 */
+  .ops-list { list-style: none; }
+  .ops-list li {
+    padding: 8px 0;
+    border-bottom: 1px solid #f0f0f5;
+    font-size: 13px;
+  }
+  .ops-list li:last-child { border-bottom: none; }
+  .ops-list li strong { color: #283593; }
+
+  /* 제안 발송 대기 */
+  .pending-tags { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 12px; }
+  .pending-tag {
+    background: #f3f4f8;
+    border: 1px solid #dde;
+    color: #444;
+    font-size: 12px;
+    padding: 4px 10px;
+    border-radius: 16px;
+  }
+
+  /* 푸터 */
+  .footer {
+    text-align: center;
+    color: #aaa;
+    font-size: 12px;
+    margin-top: 32px;
+  }
+</style>
+</head>
+<body>
+<div class="wrapper">
+
+  <!-- 헤더 -->
+  <div class="report-header">
+    <div class="team">브랜드광고팀</div>
+    <h1>주간 업무 보고</h1>
+    <div class="meta">
+      <span>📅 2026년 7월 13일(월) – 7월 16일(목) &nbsp;|&nbsp; 7월 17일(금) 공휴일</span>
+      <span>👤 서정훈 팀장</span>
+    </div>
+  </div>
+
+  <!-- KPI 요약 -->
+  <div class="kpi-row">
+    <div class="kpi-card">
+      <div class="label">7월 수주 누적</div>
+      <div class="value">9건</div>
+      <div class="sub">1억 1,300만원</div>
+    </div>
+    <div class="kpi-card">
+      <div class="label">신규 영업 발송</div>
+      <div class="value">13건</div>
+      <div class="sub">미팅 확정 3건</div>
+    </div>
+    <div class="kpi-card">
+      <div class="label">캠페인 운영 처리</div>
+      <div class="value">12건</div>
+      <div class="sub">세팅·소재교체·리포트·계약</div>
+    </div>
+    <div class="kpi-card">
+      <div class="label">제안 파이프라인</div>
+      <div class="value">25건</div>
+      <div class="sub">2억 6,750만원</div>
+    </div>
+  </div>
+
+  <!-- 1. 수주 실적 -->
+  <div class="section">
+    <div class="section-title"><span class="num">1</span> 수주 실적 &nbsp;<span style="font-size:13px;font-weight:400;color:#666;">이번 달(7월) 누적 9건 / 1억 1,300만원</span></div>
+    <table>
+      <thead><tr><th>광고주</th><th>에이전시</th><th>금액</th><th>매체</th><th>상태</th></tr></thead>
+      <tbody>
+        <tr><td>세이브택스</td><td>유닛블랙</td><td>4,000만</td><td>직방·호갱노노</td><td><span class="badge badge-sign">✍️ 전자날인</span></td></tr>
+        <tr><td>미소</td><td>메조미디어</td><td>3,500만</td><td>직방·호갱노노</td><td><span class="badge badge-booked">📅 부킹 완료</span></td></tr>
+        <tr><td>아파팅</td><td>커넥트서울</td><td>1,000만</td><td>호갱노노</td><td><span class="badge badge-booked">📅 부킹 완료</span></td></tr>
+        <tr><td>LG유플러스소호</td><td>NHN AD</td><td>1,000만</td><td>직방·호갱노노</td><td><span class="badge badge-sign">✍️ 전자날인</span></td></tr>
+        <tr><td>착한이사</td><td>아이애드원</td><td>500만</td><td>직방</td><td><span class="badge badge-report">📊 리포트 전달</span></td></tr>
+        <tr><td>밀도</td><td>주식회사밀도</td><td>500만</td><td>직방·호갱노노</td><td><span class="badge badge-sign">✍️ 전자날인</span></td></tr>
+        <tr><td>모자이크</td><td>나스미디어</td><td>500만</td><td>호갱노노</td><td><span class="badge badge-sign">✍️ 전자날인</span></td></tr>
+        <tr><td>V컬러링</td><td>메조미디어</td><td>200만</td><td>직방</td><td><span class="badge badge-sign">✍️ 전자날인</span></td></tr>
+        <tr><td>코웨이자사몰</td><td>KT나스미디어</td><td>100만</td><td>호갱노노</td><td><span class="badge badge-booked">📅 부킹 완료</span></td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- 2. 주요 미팅 현황 -->
+  <div class="section">
+    <div class="section-title"><span class="num">2</span> 주요 미팅 현황 &nbsp;<span style="font-size:13px;font-weight:400;color:#666;">11건</span></div>
+    <table>
+      <thead><tr><th>일자</th><th>미팅</th><th>참석</th><th>주요 내용 및 결과</th></tr></thead>
+      <tbody>
+        <tr><td>7/13(월)</td><td>브랜드광고팀 Weekly</td><td>팀 전원</td><td>주간 지표·성과·이슈 공유, 우선순위 선정</td></tr>
+        <tr><td>7/13(월)</td><td>구좌제 지면운영 전사 회의</td><td>팀 전원</td><td>구좌제 운영 방식 변경사항 조율 → <strong>8/1 구좌 3→4 확정</strong></td></tr>
+        <tr><td>7/13(월)</td><td>오늘의집 Offsite 제휴 미팅</td><td>Kitty</td><td>1차 테스트 방향성 협의. 연동 없이 데이터 확보 방식으로 진행 결정</td></tr>
+        <tr><td>7/14(화)</td><td>더에스엠씨 박중원 실장 (외근)</td><td>Peter</td><td>에이전시 협업 논의</td></tr>
+        <tr><td>7/14(화)</td><td>드림인사이트 매체설명회 (외근)</td><td>Peter</td><td>매체 소개 및 협업 기회 탐색</td></tr>
+        <tr><td>7/14(화)</td><td>AI Live+Labs / Gemini Playground</td><td>Hailey·Kitty</td><td>구글 AI 외부 행사 참석 (신라호텔)</td></tr>
+        <tr><td>7/15(수)</td><td>브랜드사업부 &amp; PO3팀 정기미팅</td><td>James·Silk·Kitty·Hailey</td><td>부서 간 정기 업무 조율</td></tr>
+        <tr><td>7/15(수)</td><td>메조미디어 미소(청소) 점심 미팅</td><td>Kitty</td><td>8월 직방 메인팝업 취소, <strong>9·10·11월 일정 재조정 합의</strong></td></tr>
+        <tr><td>7/16(목)</td><td>1:1 서정훈 팀장 / Thomas Chang</td><td>Peter</td><td>정기 1:1</td></tr>
+        <tr><td>7/16(목)</td><td>캐시노트 온라인 미팅</td><td>Peter·Kitty</td><td>KCDX직방 광고 상품 소개 → 카카오 채널톡 단독 상품 가능 여부 추후 회신 예정</td></tr>
+        <tr><td>7/16(목)</td><td>메조미디어 종일 미팅</td><td>Hailey</td><td>미소팀 점심 + CJ메조 오후 연속 미팅 (12:00~18:30)</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- 3. 영업 활동 -->
+  <div class="section">
+    <div class="section-title"><span class="num">3</span> 영업 활동 &nbsp;<span style="font-size:13px;font-weight:400;color:#666;">신규 제안·영업 발송 13건 / 미팅 확정 3건</span></div>
+    <p style="font-size:13px;font-weight:600;color:#1a237e;margin-bottom:10px;">📌 확정 미팅 (다음 주)</p>
+    <ul class="meeting-list">
+      <li><span class="meeting-date">7/20(월)</span> <strong>삼쩜삼</strong> — 부동산 관심 유저 기반 세무환급 광고 제안 (오프라인 미팅)</li>
+      <li><span class="meeting-date">7/21(화)</span> <strong>마더브레인</strong> — 광고상품 설명회 (참석 10~12명, 서정훈 팀장·Hailey 방문)</li>
+      <li><span class="meeting-date">7/28(화)</span> <strong>와일리</strong> — 에이전시 재연결 및 협업 논의</li>
+    </ul>
+    <p style="font-size:13px;font-weight:600;color:#1a237e;margin: 16px 0 8px;">⏳ 주요 제안 발송 (회신 대기)</p>
+    <div class="pending-tags">
+      <span class="pending-tag">코리아교육그룹 <em style="color:#888;font-size:11px;">(무상 테스트 800만)</em></span>
+      <span class="pending-tag">삼성전자 AI무풍 에어컨</span>
+      <span class="pending-tag">BYD 8월 캠페인</span>
+      <span class="pending-tag">딜로이트커뮤니케이션즈</span>
+      <span class="pending-tag">빅밴드앤코</span>
+      <span class="pending-tag">캐리어에어컨</span>
+      <span class="pending-tag" style="color:#aaa;">외 다수</span>
+    </div>
+  </div>
+
+  <!-- 4. 견적 제안 현황 -->
+  <div class="section">
+    <div class="section-title"><span class="num">4</span> 견적 제안 현황 (파이프라인) &nbsp;<span style="font-size:13px;font-weight:400;color:#666;">총 25건 / 2억 6,750만원</span></div>
+    <div class="pipeline-summary">
+      <div class="ps-card high">
+        <div class="ps-label">🔴 높음 (70%+)</div>
+        <div class="ps-count">12건</div>
+        <div class="ps-amt">8,400만원</div>
+      </div>
+      <div class="ps-card mid">
+        <div class="ps-label">🟡 중간 (40~70%)</div>
+        <div class="ps-count">9건</div>
+        <div class="ps-amt">1억 1,350만원</div>
+      </div>
+      <div class="ps-card low">
+        <div class="ps-label">🟢 낮음 (~40%)</div>
+        <div class="ps-count">4건</div>
+        <div class="ps-amt">8,500만원</div>
+      </div>
+    </div>
+    <table>
+      <thead><tr><th>광고주</th><th>대행사 / 랩사</th><th style="text-align:right;">제안금액</th><th>캠페인 기간</th><th>업종</th><th>부킹 가능성</th></tr></thead>
+      <tbody>
+        <tr><td>유플러스</td><td>NHN AD</td><td style="text-align:right;">10,000,000</td><td>2026-07-28 ~ 08-03</td><td>통신</td><td class="prob-high">🔴 높음</td></tr>
+        <tr><td>주택도시보증공사</td><td>나스미디어</td><td style="text-align:right;">10,000,000</td><td>2026-08-01 ~ 12-31</td><td>정부기관</td><td class="prob-high">🔴 높음</td></tr>
+        <tr><td>케이뱅크(아낌e)</td><td>애드이피션시</td><td style="text-align:right;">5,500,000</td><td>미정</td><td>금융</td><td class="prob-high">🔴 높음</td></tr>
+        <tr><td>하나은행</td><td>SM C&amp;C / 나스미디어</td><td style="text-align:right;">5,000,000</td><td>2026-08-01 ~ 08-31</td><td>금융</td><td class="prob-high">🔴 높음</td></tr>
+        <tr><td>케이뱅크</td><td>이든앤앨리스 / 메조미디어</td><td style="text-align:right;">5,000,000</td><td>2026-09-01 ~ 10-31</td><td>금융</td><td class="prob-high">🔴 높음</td></tr>
+        <tr><td>에이스침대</td><td>애드쿠아</td><td style="text-align:right;">5,000,000</td><td>2026-08-01 ~ 09-06</td><td>가구</td><td class="prob-high">🔴 높음</td></tr>
+        <tr><td>스칸디아</td><td>메조미디어</td><td style="text-align:right;">5,000,000</td><td>2026-08-01 ~ 08-31</td><td>가구</td><td class="prob-high">🔴 높음</td></tr>
+        <tr><td>OK저축은행</td><td>브레인큐브</td><td style="text-align:right;">5,000,000</td><td>2026-08-01 ~ 08-31</td><td>금융</td><td class="prob-high">🔴 높음</td></tr>
+        <tr><td>오늘의집(테스트)</td><td>—</td><td style="text-align:right;">5,000,000</td><td>2026-09-01 ~ 09-30</td><td>가구</td><td class="prob-high">🔴 높음</td></tr>
+        <tr><td>삼성전자(인덕션)</td><td>PTKOREA / 메조미디어</td><td style="text-align:right;">5,000,000</td><td>2026-07-13 ~ 08-12</td><td>가전/생활</td><td class="prob-high">🔴 높음</td></tr>
+        <tr><td>금성침대</td><td>애드쿠아인터렉티브 / 나스미디어</td><td style="text-align:right;">5,000,000</td><td>2026-11-01 ~ 11-30</td><td>가구</td><td class="prob-high">🔴 높음</td></tr>
+        <tr><td>현대리바트</td><td>나스미디어</td><td style="text-align:right;">3,500,000</td><td>2026-08-01 ~ 09-21</td><td>가구</td><td class="prob-high">🔴 높음</td></tr>
+        <tr style="background:#fffde7"><td>에몬스</td><td>펜타브리드 / 메조미디어</td><td style="text-align:right;">30,000,000</td><td>2026-08-01 ~ 08-31</td><td>가구</td><td class="prob-mid">🟡 중간</td></tr>
+        <tr style="background:#fffde7"><td>BYD</td><td>PTKOREA</td><td style="text-align:right;">25,000,000</td><td>2026-08-01 ~ 08-31</td><td>수송</td><td class="prob-mid">🟡 중간</td></tr>
+        <tr style="background:#fffde7"><td>가전케어 브랜드</td><td>나스미디어</td><td style="text-align:right;">20,000,000</td><td>2026-08-01 ~ 08-14</td><td>가전/생활</td><td class="prob-mid">🟡 중간</td></tr>
+        <tr style="background:#fffde7"><td>미공개(음식물처리기)</td><td>메조미디어</td><td style="text-align:right;">13,500,000</td><td>2026-07-01 ~ 08-31</td><td>가전/생활</td><td class="prob-mid">🟡 중간</td></tr>
+        <tr style="background:#fffde7"><td>CJENM(타짜)</td><td>메조미디어</td><td style="text-align:right;">5,000,000</td><td>2026-09-14 ~ 09-20</td><td>문화</td><td class="prob-mid">🟡 중간</td></tr>
+        <tr style="background:#fffde7"><td>새빛안과병원</td><td>인크로스</td><td style="text-align:right;">5,000,000</td><td>미정</td><td>의료</td><td class="prob-mid">🟡 중간</td></tr>
+        <tr style="background:#fffde7"><td>NH투자증권</td><td>—</td><td style="text-align:right;">5,000,000</td><td>미정</td><td>금융</td><td class="prob-mid">🟡 중간</td></tr>
+        <tr style="background:#fffde7"><td>현대차증권</td><td>디퍼플 / 메조미디어</td><td style="text-align:right;">5,000,000</td><td>2026-07-01 ~ 07-31</td><td>금융</td><td class="prob-mid">🟡 중간</td></tr>
+        <tr style="background:#fffde7"><td>네이버페이</td><td>메조미디어</td><td style="text-align:right;">5,000,000</td><td>2026-07-01 ~ 07-31</td><td>금융</td><td class="prob-mid">🟡 중간</td></tr>
+        <tr style="background:#f1f8e9"><td>Fisher Investment</td><td>PTKOREA</td><td style="text-align:right;">60,000,000</td><td>2026-11 ~ 2027-04</td><td>금융</td><td class="prob-low">🟢 낮음</td></tr>
+        <tr style="background:#f1f8e9"><td>파파이스</td><td>대학내일 / 나스미디어</td><td style="text-align:right;">10,000,000</td><td>2026-08-01 ~ 08-31</td><td>F&amp;B</td><td class="prob-low">🟢 낮음</td></tr>
+        <tr style="background:#f1f8e9"><td>버거킹</td><td>이노션에스 / 메조미디어</td><td style="text-align:right;">10,000,000</td><td>2026-07-30 ~ 08-12</td><td>F&amp;B</td><td class="prob-low">🟢 낮음</td></tr>
+        <tr style="background:#f1f8e9"><td>위워크</td><td>어셈블리 / DMC미디어</td><td style="text-align:right;">5,000,000</td><td>2026-07-01 ~ 07-31</td><td>부동산</td><td class="prob-low">🟢 낮음</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- 5. 캠페인 운영 -->
+  <div class="section">
+    <div class="section-title"><span class="num">5</span> 캠페인 운영 &nbsp;<span style="font-size:13px;font-weight:400;color:#666;">이번 주 처리 완료 12건</span></div>
+    <ul class="ops-list">
+      <li><strong>오늘의집 O2O</strong> &nbsp;오버부킹(7/15·27·29, 노출 ~20% 감소) → 호갱노노 메인팝업 3일(7/31~8/2) 추가 운영으로 보상 합의 완료</li>
+      <li><strong>현대캐피탈</strong> &nbsp;호갱노노 지면 7/14~8/13 라이브, 소재 오타 20분 내 수정 대응</li>
+      <li><strong>청호나이스</strong> &nbsp;브랜드위크 소재 교체 완료 및 게재보고 전달</li>
+      <li><strong>에이치티엘코리아</strong> &nbsp;동탄역 반경 10km 앱푸시 발송 완료</li>
+      <li><strong>코웨이</strong> &nbsp;7/15 소재 교체 적용, 7/27 메인팝업 부킹·계약 완료</li>
+      <li><strong>세이브택스</strong> &nbsp;발송 일정 연기 요청 → 취소 처리, 신규 일정 확정 후 재진행</li>
+    </ul>
+  </div>
+
+  <!-- 6. 주요 이슈 -->
+  <div class="section">
+    <div class="section-title"><span class="num">6</span> 주요 이슈</div>
+    <ul class="issue-list">
+      <li><strong>광고 상품 단가 개편 (8/1 적용)</strong> — 메인팝업 구좌 3→4개 변경, 직방·호갱노노 단가 하향 예정. 3Q 개정 견적서 및 상품소개서 재배포 완료</li>
+      <li><strong>오늘의집 오버부킹 대응</strong> — 7월 집행 중 3일 노출 부족분 발생. 보상 추가 운영 합의로 마무리. 재발 방지를 위한 구좌 운영 기준 재정비 필요</li>
+      <li><strong>Cube MCP 연동 작업 진행</strong> — 광고 운영 효율화를 위한 시스템 연동 (Silk 담당, 진행 중)</li>
+      <li><strong>예상 게재면 생성기(mockup-web) 개발</strong> — 광고주 제안용 목업 자동생성 툴 구축 중 (Kitty 담당)</li>
+    </ul>
+  </div>
+
+  <!-- 7. 다음 주 중점 사항 -->
+  <div class="section">
+    <div class="section-title"><span class="num">7</span> 다음 주 중점 사항</div>
+    <table>
+      <thead><tr><th>일정</th><th>내용</th><th>담당</th></tr></thead>
+      <tbody>
+        <tr><td>7/20(월)</td><td>삼쩜삼 미팅 — 동종 업종 효율 데이터 준비</td><td>Peter</td></tr>
+        <tr><td>7/21(화)</td><td>마더브레인 미팅 — 대규모 설명회 대응</td><td>Peter · Hailey</td></tr>
+        <tr><td>7/23(목)</td><td>나스미디어(지누스 건) 점심 미팅</td><td>Hailey</td></tr>
+        <tr><td>7/27(월)</td><td>코웨이자사몰 메인팝업 집행 — <strong>소재 7/23까지 수령 필요</strong></td><td>Silk</td></tr>
+        <tr><td>7/28(화)</td><td>와일리 미팅 — 사전 자료 준비</td><td>Peter</td></tr>
+        <tr><td>미정</td><td>삼성전자 AI무풍 에어컨 광고주 검토 결과 회신 대기</td><td>Silk</td></tr>
+        <tr><td>미정</td><td>딜로이트커뮤니케이션즈 담당자 복귀 후 미팅 일정 확인</td><td>Peter</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="footer">2026. 7. 13 – 16 &nbsp;|&nbsp; 브랜드광고팀</div>
+</div>
+</body>
+</html>

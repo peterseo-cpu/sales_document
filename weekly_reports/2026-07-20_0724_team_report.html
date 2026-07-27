@@ -1,0 +1,461 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>브랜드광고팀 주간 업무 보고 | 7월 20–24일</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: 'Apple SD Gothic Neo', 'Noto Sans KR', 'Malgun Gothic', sans-serif;
+    background: #f4f6f9;
+    color: #1a1a2e;
+    font-size: 14px;
+    line-height: 1.6;
+  }
+  .wrapper { max-width: 960px; margin: 0 auto; padding: 32px 20px 60px; }
+
+  .report-header {
+    background: linear-gradient(135deg, #1a237e 0%, #283593 60%, #3949ab 100%);
+    color: #fff;
+    border-radius: 12px;
+    padding: 32px 36px;
+    margin-bottom: 28px;
+  }
+  .report-header .team { font-size: 13px; opacity: .75; margin-bottom: 6px; letter-spacing: .08em; text-transform: uppercase; }
+  .report-header h1 { font-size: 22px; font-weight: 700; margin-bottom: 14px; }
+  .report-header .meta { display: flex; gap: 28px; font-size: 13px; opacity: .85; }
+
+  .kpi-row { display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; margin-bottom: 28px; }
+  .kpi-card {
+    background: #fff;
+    border-radius: 10px;
+    padding: 18px 16px;
+    text-align: center;
+    box-shadow: 0 1px 6px rgba(0,0,0,.07);
+    border-top: 3px solid #3949ab;
+  }
+  .kpi-card .label { font-size: 12px; color: #666; margin-bottom: 6px; }
+  .kpi-card .value { font-size: 22px; font-weight: 700; color: #1a237e; }
+  .kpi-card .sub { font-size: 12px; color: #888; margin-top: 3px; }
+  .kpi-card.tbd .value { color: #999; font-size: 18px; }
+
+  .section {
+    background: #fff;
+    border-radius: 10px;
+    padding: 24px 28px;
+    margin-bottom: 18px;
+    box-shadow: 0 1px 6px rgba(0,0,0,.06);
+  }
+  .section-title {
+    font-size: 15px;
+    font-weight: 700;
+    color: #1a237e;
+    margin-bottom: 16px;
+    padding-bottom: 10px;
+    border-bottom: 2px solid #e8eaf6;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .section-title .num {
+    background: #3949ab;
+    color: #fff;
+    font-size: 12px;
+    font-weight: 700;
+    width: 22px; height: 22px;
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    flex-shrink: 0;
+  }
+
+  table { width: 100%; border-collapse: collapse; font-size: 13px; }
+  thead th {
+    background: #e8eaf6;
+    color: #1a237e;
+    font-weight: 600;
+    padding: 9px 12px;
+    text-align: left;
+    font-size: 12px;
+  }
+  tbody tr:nth-child(even) { background: #fafbff; }
+  tbody td { padding: 9px 12px; border-bottom: 1px solid #f0f0f5; vertical-align: middle; }
+  tbody tr:last-child td { border-bottom: none; }
+
+  .badge {
+    display: inline-block;
+    padding: 2px 9px;
+    border-radius: 20px;
+    font-size: 11px;
+    font-weight: 600;
+    white-space: nowrap;
+  }
+  .badge-done { background: #e8f5e9; color: #2e7d32; }
+  .badge-hold { background: #ffebee; color: #c62828; }
+  .badge-new { background: #e3f2fd; color: #1565c0; }
+
+  .issue-box {
+    background: #fff8f8;
+    border-left: 4px solid #ef5350;
+    border-radius: 0 8px 8px 0;
+    padding: 14px 16px;
+    margin-bottom: 12px;
+  }
+  .issue-box:last-child { margin-bottom: 0; }
+  .issue-title { font-weight: 700; color: #c62828; margin-bottom: 6px; font-size: 13px; }
+  .issue-body { font-size: 13px; color: #444; line-height: 1.7; }
+
+  .notice-box {
+    background: #f3f8ff;
+    border-left: 4px solid #3949ab;
+    border-radius: 0 8px 8px 0;
+    padding: 14px 16px;
+  }
+  .notice-title { font-weight: 700; color: #1a237e; margin-bottom: 6px; font-size: 13px; }
+
+  .sales-group { margin-bottom: 18px; }
+  .sales-group:last-child { margin-bottom: 0; }
+  .sales-group-title {
+    font-size: 13px;
+    font-weight: 700;
+    color: #283593;
+    margin-bottom: 10px;
+    background: #e8eaf6;
+    padding: 6px 12px;
+    border-radius: 6px;
+  }
+  .sales-list { list-style: none; padding: 0; }
+  .sales-list li {
+    padding: 7px 12px;
+    border-bottom: 1px solid #f0f0f5;
+    font-size: 13px;
+    display: flex;
+    align-items: flex-start;
+    gap: 8px;
+  }
+  .sales-list li:last-child { border-bottom: none; }
+  .sales-list li::before { content: '·'; color: #3949ab; font-weight: 700; flex-shrink: 0; }
+
+  .next-table tr.confirmed td { background: #e8f5e9; }
+
+  .tbd-note {
+    background: #fffde7;
+    border: 1px solid #ffe082;
+    border-radius: 8px;
+    padding: 12px 16px;
+    font-size: 13px;
+    color: #795548;
+    margin-bottom: 16px;
+  }
+</style>
+</head>
+<body>
+<div class="wrapper">
+
+  <!-- 헤더 -->
+  <div class="report-header">
+    <div class="team">브랜드광고팀 · Brand Ads Team</div>
+    <h1>📋 주간 업무 보고 | 2026년 7월 20일 – 24일</h1>
+    <div class="meta">
+      <span>📅 보고 기간: 2026.07.20(월) – 07.24(금)</span>
+      <span>👤 보고자: 서정훈 팀장</span>
+    </div>
+  </div>
+
+  <!-- KPI 요약 -->
+  <div class="kpi-row">
+    <div class="kpi-card tbd">
+      <div class="label">이번 주 수주</div>
+      <div class="value">기입 필요</div>
+      <div class="sub">7월 누적 집계 필요</div>
+    </div>
+    <div class="kpi-card">
+      <div class="label">영업 연락·제안</div>
+      <div class="value">10+건</div>
+      <div class="sub">신규 미팅 1건 확정</div>
+    </div>
+    <div class="kpi-card">
+      <div class="label">캠페인 처리</div>
+      <div class="value">8건</div>
+      <div class="sub">세팅·소재·부킹·제출</div>
+    </div>
+    <div class="kpi-card">
+      <div class="label">팀 미팅</div>
+      <div class="value">8건</div>
+      <div class="sub">내부 5 · 외부 3</div>
+    </div>
+  </div>
+
+  <!-- 1. 수주 실적 -->
+  <div class="section">
+    <div class="section-title"><span class="num">1</span> 수주 실적</div>
+    <div class="tbd-note">
+      ⚠️ 이번 주 수주 확정 건은 직접 기입이 필요합니다.
+    </div>
+    <table>
+      <thead>
+        <tr><th>광고주</th><th>에이전시</th><th>금액</th><th>매체</th><th>상태</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td colspan="5" style="text-align:center; color:#999; font-style:italic; padding:20px;">이번 주 수주 확정 건 입력 필요</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- 2. 주요 미팅 현황 -->
+  <div class="section">
+    <div class="section-title"><span class="num">2</span> 주요 미팅 현황</div>
+    <table>
+      <thead>
+        <tr>
+          <th style="width:80px">일자</th>
+          <th>미팅</th>
+          <th style="width:140px">참석</th>
+          <th>주요 내용 및 결과</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>7/20(월)</td>
+          <td>영업회의</td>
+          <td>Peter · Hailey · Kitty</td>
+          <td>주간 미팅·재집행 관리 논의 (09:35~10:05)</td>
+        </tr>
+        <tr>
+          <td>7/20(월)</td>
+          <td>브랜드광고팀 Weekly</td>
+          <td>팀 전원</td>
+          <td>주간 지표·성과·이슈 공유, 우선순위 선정 (14:00~14:30)</td>
+        </tr>
+        <tr>
+          <td>7/20(월)</td>
+          <td>삼쩜삼(자비스앤빌런즈) 강도연 매니저 <span class="badge badge-new">외근</span></td>
+          <td>Peter · Kitty</td>
+          <td>동종 업종 광고 운영 현황·효율 데이터 공유. 아이콘역삼빌딩 9층 (15:00~16:00)</td>
+        </tr>
+        <tr>
+          <td>7/21(화)</td>
+          <td>브랜드사업부 & PO3팀 정기미팅</td>
+          <td>James · Silk · Kitty · Hailey</td>
+          <td>부서 간 정기 업무 조율 <em style="color:#999">(Peter 마더브레인 외근으로 불참)</em></td>
+        </tr>
+        <tr>
+          <td>7/21(화)</td>
+          <td>마더브레인 광고상품 설명회 <span class="badge badge-new">외근</span></td>
+          <td>Peter · Hailey</td>
+          <td>광고상품 설명회. 블루스톤타워 (15:00~18:30). 참석 10~12명</td>
+        </tr>
+        <tr>
+          <td>7/24(금)</td>
+          <td>팀회식 🍽️</td>
+          <td>팀 전원</td>
+          <td>알로프트 강남 (13:00~14:00)</td>
+        </tr>
+        <tr>
+          <td>7/24(금)</td>
+          <td>구좌제 부킹 캘린더 사용법 안내</td>
+          <td>Kitty · 팀 전원</td>
+          <td>신규 부킹 시스템 전환 안내 완료 (14:45~15:15)</td>
+        </tr>
+        <tr>
+          <td>7/24(금)</td>
+          <td>1:1 서정훈 팀장 / Daniel Min</td>
+          <td>Peter</td>
+          <td>채널톡 이슈 방향성, 네모 플랫폼 소상공인 문의 건 논의 (17:00~17:30)</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- 3. 영업 활동 -->
+  <div class="section">
+    <div class="section-title"><span class="num">3</span> 영업 활동</div>
+    <div class="sales-group">
+      <div class="sales-group-title">✅ 확정 미팅 (다음 주)</div>
+      <ul class="sales-list">
+        <li><strong>7/28(화)</strong> 와일리 — 에이전시 재연결 및 협업 논의 (Peter)</li>
+      </ul>
+    </div>
+    <div class="sales-group">
+      <div class="sales-group-title">📤 신규 연락·제안 발송</div>
+      <ul class="sales-list">
+        <li><strong>대홍기획 김영빈 수석</strong> — 롯데그룹 계열사 캠페인 검토 요청, 재연락 예정</li>
+        <li><strong>컬리 최용수 매니저</strong> — 가구 카테고리 입점사 연계 광고 가능성 타진</li>
+        <li><strong>CJ웰케어 최고은 팀장</strong> — 신규 제안 연락 완료</li>
+        <li><strong>마이리얼트립 오상희 매니저</strong> — 신규 연락 완료</li>
+        <li><strong>마이디어 엄준호 매니저</strong> — 신규 연락 완료</li>
+        <li><strong>카카오게임즈 봉성호 팀장</strong> — 신규 연락 완료</li>
+        <li><strong>어센드미디어 최종탁 본부장</strong> — 신규 연락 완료</li>
+        <li><strong>타이타늄22 고광석 팀장</strong> — 풀무원 캠페인 제안 발송</li>
+        <li><strong>룩앳미디어</strong> — 재연락 완료</li>
+        <li><strong>모티브인텔리전스 양준모 대표</strong> — DMP 활용 마케팅 솔루션 소개 및 협업 문의 발송</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- 4. 캠페인 운영 -->
+  <div class="section">
+    <div class="section-title"><span class="num">4</span> 캠페인 운영</div>
+    <table>
+      <thead>
+        <tr>
+          <th style="width:130px">광고주</th>
+          <th>처리 내용</th>
+          <th style="width:70px">담당</th>
+          <th style="width:80px">상태</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>아파팅</strong></td>
+          <td>DA 운영으로 예산 변경 (7/24~). 피드(기존소재·125만 imp) + 메인팝업(신규소재) 검수·세팅 완료</td>
+          <td>Silk</td>
+          <td><span class="badge badge-done">완료</span></td>
+        </tr>
+        <tr>
+          <td><strong>메제이상</strong></td>
+          <td>메인팝업 스플래시 8/1~2 세팅 완료</td>
+          <td>Silk</td>
+          <td><span class="badge badge-done">완료</span></td>
+        </tr>
+        <tr>
+          <td><strong>호갱노노 여름사진전</strong></td>
+          <td>스플래시 8/3~4 부킹 완료</td>
+          <td>Silk</td>
+          <td><span class="badge badge-done">완료</span></td>
+        </tr>
+        <tr>
+          <td><strong>도미실(에이치티엘코리아)</strong></td>
+          <td>소재 협의 완료, 집행 진행 중</td>
+          <td>Hailey</td>
+          <td><span class="badge badge-done">완료</span></td>
+        </tr>
+        <tr>
+          <td><strong>현대캐피탈(플레이디)</strong></td>
+          <td>소재 협의 완료</td>
+          <td>Hailey</td>
+          <td><span class="badge badge-done">완료</span></td>
+        </tr>
+        <tr>
+          <td><strong>세이브택스</strong></td>
+          <td>카카오 약관 위반 패널티로 기세팅 건 전면 홀딩. 카카오 소명 진행 예정</td>
+          <td>Silk · Kitty</td>
+          <td><span class="badge badge-hold">홀딩</span></td>
+        </tr>
+        <tr>
+          <td><strong>구좌제 부킹 캘린더</strong></td>
+          <td>구글시트 → zb-slot-booking-calendar.web.app 시스템 전환 및 사용법 안내 완료 (7/24)</td>
+          <td>Kitty</td>
+          <td><span class="badge badge-done">전환 완료</span></td>
+        </tr>
+        <tr>
+          <td><strong>7월 추정매출</strong></td>
+          <td>파이낸스 제출 완료 (7/24)</td>
+          <td>Peter</td>
+          <td><span class="badge badge-done">완료</span></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- 5. 주요 이슈 -->
+  <div class="section">
+    <div class="section-title"><span class="num">5</span> 주요 이슈</div>
+
+    <div class="issue-box">
+      <div class="issue-title">🚨 세이브택스 카카오 톡채널 패널티 발생 (7/22)</div>
+      <div class="issue-body">
+        고양시 타겟 메시지 건 약관 위반 신고 접수 → 카카오 측 패널티 통보. 기세팅 건 전면 홀딩 조치.
+        카카오 소명 진행 예정. 아파팅 관련 건도 별도 소명 필요 여부 검토 중.
+        <br><br>
+        <strong>재발 방지:</strong> 채널톡 광고 집행 시 카카오 채널 카테고리(색깔) 요건 및 타겟 설정 기준 사전 확인 프로세스 정비 필요.
+      </div>
+    </div>
+
+    <div class="issue-box">
+      <div class="issue-title">⚠️ LG전자(식기세척기) 구글 DMP 이슈</div>
+      <div class="issue-body">
+        나스미디어에서 이미 구글 DMP 제공으로 소통 완료한 건으로, 추가 제공 어렵다는 회신. 대안 방향 협의 필요 (Hailey 담당).
+      </div>
+    </div>
+
+    <div class="issue-box" style="background:#fff8f0; border-color:#ff9800;">
+      <div class="issue-title" style="color:#e65100;">📋 정보통신망법 스팸 가이드 7차 개정 공지 (7/23)</div>
+      <div class="issue-body">
+        광고 수신 동의 시 모호한 표현 금지 / 앱푸시 거부 시 복잡 절차 불가 / 쿠폰·마일리지 등 일방 제공 후 안내 전송 시 명시적 사전 동의 필요.
+        향후 캠페인 운영 및 광고주 제안 시 참고 적용 필요.
+      </div>
+    </div>
+  </div>
+
+  <!-- 6. 팀 소식 -->
+  <div class="section">
+    <div class="section-title"><span class="num">6</span> 팀 소식</div>
+    <div class="notice-box">
+      <div class="notice-title">🎉 신규 팀원 합류 예정</div>
+      <div style="font-size:13px; color:#333;">
+        <strong>유민정님</strong> 8/18(화) 출근 예정. 사내교육 일정 고려 시 실제 업무 투입은 9월 초 예상. 온보딩 준비 필요.
+      </div>
+    </div>
+  </div>
+
+  <!-- 7. 다음 주 중점 사항 -->
+  <div class="section">
+    <div class="section-title"><span class="num">7</span> 다음 주 중점 사항</div>
+    <table class="next-table">
+      <thead>
+        <tr>
+          <th style="width:80px">일정</th>
+          <th>내용</th>
+          <th style="width:70px">담당</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr class="confirmed">
+          <td>7/27(월)</td>
+          <td>코웨이자사몰 메인팝업 집행 — 소재 수령 완료 여부 최종 확인</td>
+          <td>Silk</td>
+        </tr>
+        <tr class="confirmed">
+          <td>7/28(화)</td>
+          <td>와일리 미팅 — 사전 자료 준비 및 에이전시 재연결</td>
+          <td>Peter</td>
+        </tr>
+        <tr>
+          <td>미정</td>
+          <td>세이브택스 카카오 소명 결과 확인 및 재진행 일정 확정</td>
+          <td>Silk · Kitty</td>
+        </tr>
+        <tr>
+          <td>미정</td>
+          <td>마더브레인 후속 제안서 발송</td>
+          <td>Hailey</td>
+        </tr>
+        <tr>
+          <td>미정</td>
+          <td>삼성전자 AI무풍 에어컨 광고주 검토 결과 회신 대기</td>
+          <td>Silk</td>
+        </tr>
+        <tr>
+          <td>미정</td>
+          <td>딜로이트커뮤니케이션즈 담당자 복귀 후 미팅 일정 확인</td>
+          <td>Peter</td>
+        </tr>
+        <tr>
+          <td>8/18</td>
+          <td>유민정 팀원 합류 — 온보딩 준비</td>
+          <td>Peter</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div style="text-align:center; font-size:12px; color:#aaa; margin-top:20px;">
+    2026. 7. 20 – 24 ㅣ 브랜드광고팀
+  </div>
+
+</div>
+</body>
+</html>
